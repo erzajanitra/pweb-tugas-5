@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <title>Belajar Form Validation</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="main.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    </head>
+
+    <!-- nama, nim,matkul,dosen -- muncul rekomendasi ketika masukin huruf -->
+    <body>
+        <div class="header">
+            <h1>Form Pembelajaran Tatap Muka</h1>
+            <h2>Mahasiswa Teknik Informatika</h2>
+            <h3>Semester Gasal 2021/2022</h3>
+        </div>
+        <div class="forms">
+        <div class="container">
+            <form name="formPendaftaran" action="daftar.php" method="post" onsubmit="return validateForm()">
+                <div class="form-group">
+                    <label>Nama</label>
+                    <input type="text" name="nama" placeholder="Nama lengkap" class="form-control" required maxlength="40" minlength="3">
+                </div>
+                <div class="form-group">
+                    <label>NRP</label>
+                    <input type="text" name="nrp" placeholder="NRP" class="form-control" required maxlength="40" minlength="3">
+                </div>
+                <div class="form-group">
+                    <label>Departemen</label>
+                    <input type="text" name="dep" placeholder="Departemen" class="form-control" required maxlength="40" minlength="3">
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" name="email" placeholder="Email Aktif" class="form-control">
+                    <small id="emailHelp" class="form-text text-muted">Email Akan Digunakan Untuk Mengirimkan Notifikasi.</small>
+                </div>
+                <div class="form-group">
+                    <label>Alamat Asal</label>
+                    <input type="text" name="alamat" placeholder="Alamat asal" class="form-control" required maxlength="40" minlength="3">
+                </div>
+                <div class="form-group">
+                    <label>Alamat Domisili</label>
+                    <input type="text" name="alamat" placeholder="Alamat sesuai dengan domisili" class="form-control" required maxlength="40" minlength="3">
+                </div>
+                <div class="form-group", style="padding-bottom: 20px;">
+                    <label>Status Vaksinasi</label>
+                    <select name="jurusan" class="form-control">
+                            <option value="0">Pilih Status</option>
+                            <option value="1">Belum Melakukan Vaksinasi</option>
+                            <option value="2">Dosis 1</option>
+                            <option value="3">Dosis 2</option>
+                        </select>
+                </div>
+                <button type="submit" class="btn btn-primary", style="float: right;">Submit</button>
+            </form>
+        </div>
+        <div class="footer">
+            <p>Copyright © 2021 Institut Teknologi Sepuluh Nopember  </p>
+        </div>
+    </div>
+
+        <script>
+            function validateForm() {
+                if (document.forms["formPendaftaran"]["nama"].value == "") {
+                    alert("Nama Tidak Boleh Kosong");
+                    document.forms["formPendaftaran"]["nama"].focus();
+                    return false;
+                }
+                if (document.forms["formPendaftaran"]["email"].value == "") {
+                    alert("Email Tidak Boleh Kosong");
+                    document.forms["formPendaftaran"]["email"].focus();
+                    return false;
+                }
+                if (document.forms["formPendaftaran"]["jurusan"].selectedIndex < 1) {
+                    alert("Pilih Jurusan.");
+                    document.forms["formPendaftaran"]["jurusan"].focus();
+                    return false;
+                }
+            }
+        </script>
+
+    </body>
+    </html>
