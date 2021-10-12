@@ -31,12 +31,16 @@
  }
 .forms{
     background-color: #0067AC;
-    padding-bottom: 5rem;
+    /* padding-bottom: 5rem; */
 }
 .footer{
-    padding-bottom: 8px;
+    /* width: 65%; */
+    padding-bottom: 2px;
     padding-top: 10px;
     background-color: black;
     color: white;
     text-align: left;
+    padding-left: 13rem;
+    align-items: center;
+    margin: auto;
 }
